@@ -1,7 +1,7 @@
 package amazonRobots
 
 import amazonRobots.Protocol.Position
-import amazonRobots.Simulation.Article
+import AmazonUtils._
 
 import scala.util.Random
 
@@ -34,7 +34,7 @@ case class OccupiedBlock(p: Position) extends Block {
   override def toString = "3"
 }
 
-class Grid(val positions: String) extends AbstractGrid with BlockOperations with GridConverter { self =>
+case class Grid(val positions: String) extends AbstractGrid with BlockOperations with GridConverter { self =>
 
   val grid: TGrid = fromStringToGrid(positions)
 
