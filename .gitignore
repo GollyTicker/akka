@@ -16,4 +16,5 @@ hs_err_pid*
 # Akka
 /*/project/target/
 /project/target/
+/target/
 /project/build.properties
