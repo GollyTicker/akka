@@ -11,13 +11,15 @@ object Protocol {
   // Initialisierung eine ID (0 bis (numRobots-1)) erhalten.
   // Außerdem erhalten die eine Liste mit allen ActorRefs (inkl. sich selber).
   // Damit können sie mit { list(id) ! message } eine NAchricht an den Actor mit der ID id verschicken.
+  // Außerdem wird angenommen, dass die Aktoren zu Beginn eine Karte der Welt erhalten
+  // auf der sie dann die Positionen der anderen eintragen können. Die Packstationen, freie Felder usw. sind da bereits drauf.
 
   // Messages
   sealed trait Message
 
   // teile den anderen mit, was ich gerade mache.(Wobei ich der Actor mit der id $id bin.)
   case class IamDoing(id: Int, act:Action) extends Message with Position {
-    def x = act.x
+    def x = act.x // direkter Zugriff auf dessen current Position
     def y = act.y
   }
   // Teile anderen mit wo ich letzendlich hin will.
